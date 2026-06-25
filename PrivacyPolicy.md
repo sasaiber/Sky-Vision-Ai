@@ -71,5 +71,9 @@ To provide weather forecasts, your location coordinates (if permitted) are sent 
 *   **OpenWeatherMap:** https://openweathermap.org/privacy-policy
 *   **WeatherAPI:** https://www.weatherapi.com/privacy.aspx
 
-## 3. Data Retention and Security
-We (the developers of Sky Vision) do not operate centralized servers to collect your personal chats, emails, or system data. Your API keys, chat history, Priorityflow rules, Memory graph, and My Space profiles are stored **strictly locally** in the protected storage of your device. You can delete all this data at any time by clearing the app data in Android Settings.
+## 3. Accounts, Data Retention and Security
+**Account Creation & Server Use:** Sky Vision offers account creation via Google OAuth. We maintain a server exclusively for the purpose of facilitating access to free AI models and web search functionalities. 
+
+**Data Storage:** We (the developers of Sky Vision) do not operate centralized servers to collect or store your personal chats, emails, or system data. Your API keys, chat history, Priorityflow rules, Memory graph, and My Space profiles are stored **strictly locally** in the protected storage of your device.
+
+**Data Deletion:** You can delete all your local data at any time by clearing the app data in Android Settings or uninstalling the app. To request the deletion of your Google OAuth account and any associated data from our servers, please contact our support at **roslovtsev167@gmail.com** (or via our Telegram community).
