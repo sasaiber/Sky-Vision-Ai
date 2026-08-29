@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sky Vision • AI Task</title>
-  <meta name="description" content="Official explanation of why the AI Task companion module is distributed separately.">
+  <meta name="description" content="Official explanation of why the AI Task companion module is distributed as a separate app.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -35,10 +35,6 @@
       --md-mint-container: #284428;
       --md-on-mint-container: #d9fad7;
 
-      --md-rose-pastel: #e8b7be;
-      --md-rose-container: #4f3339;
-      --md-on-rose-container: #ffd9de;
-
       --md-on-surface: #ede0d7;
       --md-on-surface-variant: #cbbfb6;
       --md-outline: rgba(255, 255, 255, 0.07);
@@ -52,6 +48,7 @@
 
       /* M3 Spring Easing */
       --easing-spring: cubic-bezier(0.05, 0.7, 0.1, 1.0);
+      --easing-standard: cubic-bezier(0.2, 0.0, 0.0, 1.0);
     }
 
     * {
@@ -81,7 +78,7 @@
       pointer-events: none;
       z-index: 0;
       background: 
-        radial-gradient(circle at 50% -10%, rgba(232, 190, 153, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 50% -10%, rgba(232, 190, 153, 0.09) 0%, transparent 60%),
         radial-gradient(circle at 85% 75%, rgba(188, 226, 185, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 15% 45%, rgba(232, 183, 190, 0.05) 0%, transparent 50%);
     }
@@ -96,7 +93,7 @@
     /* Top Floating Island Header */
     .top-header-wrapper {
       padding-top: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .top-header {
@@ -186,7 +183,7 @@
       border-radius: var(--radius-sheet);
       padding: 36px 26px 30px;
       text-align: center;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero-badge {
@@ -211,7 +208,7 @@
 
     .hero-sheet h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 4.4vw, 2.7rem);
+      font-size: clamp(1.9rem, 4.2vw, 2.6rem);
       font-weight: 700;
       line-height: 1.2;
       letter-spacing: -0.03em;
@@ -222,7 +219,7 @@
     .hero-sheet p {
       font-size: 1.02rem;
       color: var(--md-on-surface-variant);
-      max-width: 540px;
+      max-width: 560px;
       margin: 0 auto 24px;
       line-height: 1.5;
     }
@@ -248,127 +245,79 @@
       box-shadow: 0 8px 24px rgba(232, 190, 153, 0.35);
     }
 
-    /* Section Cards */
-    .section-card {
+    /* Cards Stack */
+    .cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .m3-card {
       background: var(--md-surface-low);
       border: 1px solid var(--md-outline);
       border-radius: var(--radius-card);
-      padding: 26px 22px;
-      margin-bottom: 18px;
+      padding: 24px 22px;
+      transition: all 0.2s var(--easing-standard);
     }
 
-    .section-header-row {
+    .m3-card:hover {
+      border-color: var(--md-outline-bright);
+      background: var(--md-surface-container);
+    }
+
+    .card-top-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 12px;
     }
 
-    .section-icon-bubble {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      display: flex;
+    .date-badge {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .bubble-amber {
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 700;
       background: var(--md-amber-container);
       color: var(--md-amber-pastel);
     }
 
-    .bubble-mint {
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 700;
       background: var(--md-mint-container);
       color: var(--md-mint-pastel);
     }
 
-    .section-title {
+    .m3-card h2 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #fff;
+      margin-bottom: 8px;
     }
 
-    /* Timeline Styling */
-    .timeline-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: relative;
-    }
-
-    .timeline-item {
-      background: var(--md-surface-container);
-      border: 1px solid var(--md-outline);
-      border-radius: var(--radius-tile);
-      padding: 18px 20px;
-    }
-
-    .timeline-date-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 3px 10px;
-      border-radius: var(--radius-pill);
-      font-size: 0.74rem;
-      font-weight: 700;
-      background: var(--md-amber-container);
-      color: var(--md-amber-pastel);
-      margin-bottom: 10px;
-    }
-
-    .timeline-item h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .timeline-item p {
-      font-size: 0.88rem;
+    .m3-card p {
+      font-size: 0.92rem;
       color: var(--md-on-surface-variant);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    .timeline-quote {
-      margin-top: 8px;
-      padding: 10px 14px;
-      border-radius: 14px;
+    .policy-quote {
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-tile);
       background: var(--md-surface-high);
       border-left: 3px solid var(--md-amber-pastel);
-      font-size: 0.84rem;
+      font-size: 0.88rem;
       color: var(--md-on-surface);
       font-style: italic;
-    }
-
-    /* Reason Grid */
-    .reasons-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 12px;
-    }
-
-    .reason-card {
-      background: var(--md-surface-container);
-      border: 1px solid var(--md-outline);
-      border-radius: var(--radius-tile);
-      padding: 18px 20px;
-    }
-
-    .reason-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .reason-card p {
-      font-size: 0.88rem;
-      color: var(--md-on-surface-variant);
       line-height: 1.5;
     }
 
@@ -379,7 +328,7 @@
       border-radius: var(--radius-sheet);
       padding: 34px 22px;
       text-align: center;
-      margin: 24px 0 32px;
+      margin: 20px 0 30px;
     }
 
     .bottom-banner h2 {
@@ -450,17 +399,17 @@
       </header>
     </div>
 
-    <!-- Hero Card -->
+    <!-- Main Hero Card -->
     <section class="hero-sheet">
       <div class="hero-badge">
         <span class="status-dot"></span>
         <span data-i18n="hero_badge">Companion Module</span>
       </div>
 
-      <h1 data-i18n="hero_title">Why a separate app?</h1>
+      <h1 data-i18n="hero_title">Why AI Task is a Separate App</h1>
 
       <p data-i18n="hero_subtitle">
-        Why AI Task is distributed as a dedicated companion module.
+        Compliance with Google Play policies and full user control.
       </p>
 
       <div>
@@ -471,64 +420,46 @@
       </div>
     </section>
 
-    <!-- Google Play Policy Timeline -->
-    <section class="section-card">
-      <div class="section-header-row">
-        <div class="section-icon-bubble bubble-amber">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <!-- Cards Stack: Policy & Architecture Breakdown -->
+    <div class="cards-stack">
+      
+      <!-- Policy Announcement Card -->
+      <section class="m3-card">
+        <div class="card-top-row">
+          <span class="date-badge" data-i18n="t1_date">October 30, 2025</span>
         </div>
-        <h2 class="section-title" data-i18n="timeline_title">Google Play Policy Timeline</h2>
-      </div>
+        <h2 data-i18n="t1_title">Accessibility API Policy Update</h2>
+        <p data-i18n="t1_desc">
+          Google updated its Developer Program Guidelines with a strict prohibition regarding Accessibility Service:
+        </p>
+        <div class="policy-quote" data-i18n="t1_quote">
+          "Any use of the Accessibility API that enables an app to autonomously initiate, plan, and execute actions or decisions is strictly prohibited."
+        </div>
+      </section>
 
-      <div class="timeline-container">
-        <!-- Event 1 -->
-        <div class="timeline-item">
-          <div class="timeline-date-chip" data-i18n="t1_date">October 30, 2025</div>
-          <h3 data-i18n="t1_title">Policy Announcement</h3>
-          <p data-i18n="t1_desc">
-            Google updated its Developer Program Guidelines with a strict prohibition regarding Accessibility Service:
-          </p>
-          <div class="timeline-quote" data-i18n="t1_quote">
-            "Any use of the Accessibility API that enables an app to autonomously initiate, plan, and execute actions or decisions is strictly prohibited."
-          </div>
+      <!-- Policy Enforcement & Companion Architecture Card -->
+      <section class="m3-card">
+        <div class="card-top-row">
+          <span class="date-badge" data-i18n="t2_date">January 28, 2026</span>
         </div>
+        <h2 data-i18n="t2_title">Google Play Enforcement &amp; Architecture</h2>
+        <p data-i18n="t2_desc">
+          Google began strictly enforcing this policy across Google Play. Apps distributed via the store that use Accessibility Service for autonomous AI routines face immediate rejection. To keep the primary Sky Vision app 100% compliant while keeping powerful automated routines accessible, background tasks are isolated in this dedicated companion app.
+        </p>
+      </section>
 
-        <!-- Event 2 -->
-        <div class="timeline-item">
-          <div class="timeline-date-chip" data-i18n="t2_date">January 28, 2026</div>
-          <h3 data-i18n="t2_title">Enforcement Begins</h3>
-          <p data-i18n="t2_desc">
-            Google began strictly enforcing the policy across Google Play. Store-distributed apps using Accessibility Service for automated background AI actions face automatic rejection during review.
-          </p>
+      <!-- Privacy & User Ownership Card -->
+      <section class="m3-card">
+        <div class="card-top-row">
+          <span class="privacy-badge" data-i18n="privacy_badge">Privacy &amp; Control</span>
         </div>
-      </div>
-    </section>
+        <h2 data-i18n="card_privacy_title">100% Privacy &amp; Local Control</h2>
+        <p data-i18n="card_privacy_desc">
+          All your data belongs exclusively to you. Every action, trigger, and permission runs strictly under your direct, transparent confirmation on your device.
+        </p>
+      </section>
 
-    <!-- Explanation Cards -->
-    <section class="section-card">
-      <div class="section-header-row">
-        <div class="section-icon-bubble bubble-mint">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        </div>
-        <h2 class="section-title" data-i18n="reasons_title">Architecture &amp; Privacy</h2>
-      </div>
-
-      <div class="reasons-grid">
-        <div class="reason-card">
-          <h3 data-i18n="card_reason_title">Full Capabilities Preserved</h3>
-          <p data-i18n="card_reason_desc">
-            Rather than removing automated background routines, they are isolated into this dedicated companion app. The main Sky Vision app remains 100% compliant with Google Play.
-          </p>
-        </div>
-
-        <div class="reason-card">
-          <h3 data-i18n="card_privacy_title">Your Data Stays Yours</h3>
-          <p data-i18n="card_privacy_desc">
-            All your data belongs exclusively to you. Every action, trigger, and routine executes strictly under your direct control on your own device.
-          </p>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <!-- Bottom Action Banner -->
     <div class="bottom-banner">
@@ -557,21 +488,18 @@
         brand_title: "Sky Vision",
         brand_chip: "AI Task",
         hero_badge: "Companion Module",
-        hero_title: "Why a separate app?",
-        hero_subtitle: "Why AI Task is distributed as a dedicated companion module.",
-        timeline_title: "Google Play Policy Timeline",
+        hero_title: "Why AI Task is a Separate App",
+        hero_subtitle: "Compliance with Google Play policies and full user control.",
         t1_date: "October 30, 2025",
-        t1_title: "Policy Announcement",
-        t1_desc: "Google updated its Developer Program Guidelines with a strict prohibition regarding Accessibility Service:",
+        t1_title: "Accessibility API Policy Update",
+        t1_desc: "Google announced a new Developer Program policy with a strict prohibition regarding Accessibility Service:",
         t1_quote: '"Any use of the Accessibility API that enables an app to autonomously initiate, plan, and execute actions or decisions is strictly prohibited."',
         t2_date: "January 28, 2026",
-        t2_title: "Enforcement Begins",
-        t2_desc: "Google began strictly enforcing the policy across Google Play. Store-distributed apps using Accessibility Service for automated background AI actions face automatic rejection during review.",
-        reasons_title: "Architecture & Privacy",
-        card_reason_title: "Full Capabilities Preserved",
-        card_reason_desc: "Rather than removing automated background routines, they are isolated into this dedicated companion app. The main Sky Vision app remains 100% compliant with Google Play.",
-        card_privacy_title: "Your Data Stays Yours",
-        card_privacy_desc: "All your data belongs exclusively to you. Every action, trigger, and routine executes strictly under your direct control on your own device.",
+        t2_title: "Google Play Enforcement & Architecture",
+        t2_desc: "Google began strictly enforcing this policy across Google Play. Apps distributed via the store that use Accessibility Service for autonomous AI routines face immediate rejection. To keep the primary Sky Vision app 100% compliant while keeping powerful automated routines accessible, background tasks are isolated in this dedicated companion app.",
+        privacy_badge: "Privacy & Control",
+        card_privacy_title: "100% Privacy & Local Control",
+        card_privacy_desc: "All your data belongs exclusively to you. Every action, trigger, and permission runs strictly under your direct, transparent confirmation on your device.",
         banner_title: "Ready to configure AI Task?",
         banner_subtitle: "Start setting up the companion module directly on your device.",
         btn_setup: "Start Setup",
@@ -581,21 +509,18 @@
         brand_title: "Sky Vision",
         brand_chip: "AI Task",
         hero_badge: "Модуль-компаньйон",
-        hero_title: "Чому окремий додаток?",
-        hero_subtitle: "Чому модуль AI Task розповсюджується як окремий компаньйон.",
-        timeline_title: "Хронологія політики Google Play",
+        hero_title: "Чому AI Task — окремий додаток",
+        hero_subtitle: "Відповідність політиці Google Play та повний контроль користувача.",
         t1_date: "30 жовтня 2025",
-        t1_title: "Оголошення нової політики",
-        t1_desc: "Google оновив правила для розробників та встановив сувору заборону щодо Accessibility Service:",
+        t1_title: "Оновлення політики Accessibility API",
+        t1_desc: "Google оголосив нові правила для розробників із суворою забороною щодо Accessibility Service:",
         t1_quote: '«Будь-яке використання Accessibility API, що дозволяє додатку автономно ініціювати, планувати та виконувати дії чи рішення, суворо заборонено.»',
         t2_date: "28 січня 2026",
-        t2_title: "Початок суворої модерації",
-        t2_desc: "Google розпочав обов'язкове застосування правил у Google Play. Додатки, що використовують Accessibility для автономних AI-агентів, блокуються під час перевірки.",
-        reasons_title: "Архітектура та приватність",
-        card_reason_title: "Збереження всіх можливостей",
-        card_reason_desc: "Замість видалення корисних фонових автоматизацій, вони винесені в окремий модуль-компаньйон. Основний додаток залишається на 100% сумісним із Google Play.",
-        card_privacy_title: "Ваші дані належать лише вам",
-        card_privacy_desc: "Усі дані залишаються виключно на вашому пристрої. Кожна дія та дозвіл виконуються лише за вашим прямим підтвердженням.",
+        t2_title: "Застосування правил Google Play та архітектура",
+        t2_desc: "Google розпочав обов'язкове застосування правил. Додатки в Google Play, що використовують Accessibility для автономних дій AI-агентів, блокуються. Щоб основний додаток Sky Vision на 100% відповідав вимогам стору, корисні фонові таски винесені в цей окремий модуль-компаньйон.",
+        privacy_badge: "Приватність і контроль",
+        card_privacy_title: "100% Приватність та локальний контроль",
+        card_privacy_desc: "Усі ваші дані належать виключно вам. Кожна дія, тригер та дозвіл виконуються лише за вашим прямим підтвердженням на вашому телефоні.",
         banner_title: "Готові налаштувати AI Task?",
         banner_subtitle: "Розпочніть налаштування модуля-компаньйона на своєму пристрої.",
         btn_setup: "Розпочати налаштування",
@@ -605,21 +530,18 @@
         brand_title: "Sky Vision",
         brand_chip: "AI Task",
         hero_badge: "Moduł towarzyszący",
-        hero_title: "Dlaczego osobna aplikacja?",
-        hero_subtitle: "Dlaczego AI Task jest dystrybuowany jako dedykowany moduł towarzyszący.",
-        timeline_title: "Oś czasu zasad Google Play",
+        hero_title: "Dlaczego AI Task to osobna aplikacja",
+        hero_subtitle: "Zgodność z zasadami Google Play i pełna kontrola użytkownika.",
         t1_date: "30 października 2025",
-        t1_title: "Ogłoszenie nowych zasad",
-        t1_desc: "Google zaktualizował wytyczne dla deweloperów, wprowadzając zakaz w Accessibility Service:",
+        t1_title: "Aktualizacja zasad Accessibility API",
+        t1_desc: "Google wprowadził nowe wytyczne dla deweloperów z zakazem dotyczącym Accessibility Service:",
         t1_quote: '„Wszelkie użycie Accessibility API, które umożliwia aplikacji autonomiczne inicjowanie, planowanie i wykonywanie działań lub decyzji, jest surowo zabronione.”',
         t2_date: "28 stycznia 2026",
-        t2_title: "Rozpoczęcie egzekwowania",
-        t2_desc: "Google rozpoczął rygorystyczną weryfikację w Google Play. Aplikacje używające Accessibility do autonomicznych zadań AI podlegają odrzuceniu.",
-        reasons_title: "Architektura i prywatność",
-        card_reason_title: "Pełna funkcjonalność zachowana",
-        card_reason_desc: "Zamiast usuwać automatyzacje, zostały one przeniesione do osobnego modułu. Główna aplikacja pozostaje w 100% zgodna z Google Play.",
-        card_privacy_title: "Twoje dane należą do Ciebie",
-        card_privacy_desc: "Wszystkie dane pozostają wyłącznie na Twoim urządzeniu. Każde działanie odbywa się pod Twoją bezpośrednią kontrolą.",
+        t2_title: "Egzekwowanie zasad w Google Play i architektura",
+        t2_desc: "Google rozpoczął odrzucanie aplikacji ze sklepu realizujących autonomiczne akcje w tle. Aby główna aplikacja Sky Vision była w 100% zgodna z wytycznymi, zadania w tle zostały wyodrębnione do tej dedykowanej aplikacji towarzyszącej.",
+        privacy_badge: "Prywatność i kontrola",
+        card_privacy_title: "100% Prywatność i lokalna kontrola",
+        card_privacy_desc: "Wszystkie Twoje dane należą wyłącznie do Ciebie. Każde działanie, wyzwalacz i uprawnienie działa pod Twoją bezpośrednią kontrolą na Twoim urządzeniu.",
         banner_title: "Gotowy do konfiguracji AI Task?",
         banner_subtitle: "Rozpocznij konfigurację modułu towarzyszącego na swoim urządzeniu.",
         btn_setup: "Rozpocznij konfigurację",
@@ -629,21 +551,18 @@
         brand_title: "Sky Vision",
         brand_chip: "AI Task",
         hero_badge: "Begleit-Modul",
-        hero_title: "Warum eine separate App?",
-        hero_subtitle: "Warum AI Task als eigenständiges Begleit-Modul bereitgestellt wird.",
-        timeline_title: "Google Play Richtlinien-Verlauf",
+        hero_title: "Warum AI Task eine separate App ist",
+        hero_subtitle: "Konformität mit Google Play-Richtlinien und volle Nutzerkontrolle.",
         t1_date: "30. Oktober 2025",
-        t1_title: "Richtlinien-Ankündigung",
-        t1_desc: "Google hat die Richtlinien mit einem Verbot für den Accessibility Service aktualisiert:",
+        t1_title: "Aktualisierung der Accessibility API-Richtlinie",
+        t1_desc: "Google hat die Entwicklerrichtlinien um ein striktes Verbot für den Accessibility Service erweitert:",
         t1_quote: '„Jede Nutzung der Accessibility API, die es einer App ermöglicht, Aktionen oder Entscheidungen autonom zu initiieren, zu planen und auszuführen, ist strengstens untersagt.“',
         t2_date: "28. Januar 2026",
-        t2_title: "Beginn der Durchsetzung",
-        t2_desc: "Google setzt die Richtlinie im Play Store durch. Apps mit autonomen Accessibility-Aktionen werden bei der Überprüfung abgelehnt.",
-        reasons_title: "Architektur & Datenschutz",
-        card_reason_title: "Voller Funktionsumfang erhalten",
-        card_reason_desc: "Statt Automatisierungen zu entfernen, wurden sie in dieses Begleit-Modul ausgelagert. Die Haupt-App bleibt 100% Google Play-konform.",
-        card_privacy_title: "Ihre Daten gehören Ihnen",
-        card_privacy_desc: "Alle Daten verbleiben auf Ihrem Gerät. Jede Aktion und Berechtigung unterliegt Ihrer direkten Kontrolle.",
+        t2_title: "Durchsetzung im Google Play Store & Architektur",
+        t2_desc: "Google lehnt Store-Apps mit autonomen Hintergrundaktionen ab. Um die primäre Sky Vision App 100% richtlinienkonform zu halten, wurden Hintergrundaufgaben in dieses eigenständige Begleit-Modul ausgelagert.",
+        privacy_badge: "Datenschutz & Kontrolle",
+        card_privacy_title: "100% Datenschutz & Lokale Kontrolle",
+        card_privacy_desc: "Alle Ihre Daten gehören ausschließlich Ihnen. Jede Aktion, jeder Auslöser und jede Berechtigung erfolgt unter Ihrer direkten Kontrolle auf Ihrem Gerät.",
         banner_title: "Bereit zur Einrichtung von AI Task?",
         banner_subtitle: "Starten Sie die Einrichtung des Begleit-Moduls auf Ihrem Gerät.",
         btn_setup: "Einrichtung starten",
